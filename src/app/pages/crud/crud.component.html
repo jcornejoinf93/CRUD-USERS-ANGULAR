@@ -1,0 +1,46 @@
+<h3 class="m-5">User Manteiner</h3>
+<form [formGroup]="form" (ngSubmit)="saveUser()">
+
+    <div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Name:</label>
+            <div class="col-8">
+                <input class="form-control" type="text" placeholder="enter name" formControlName="name" [class.is-invalid]="nameInvalid">
+                <span class="text-danger" *ngIf="nameInvalid">Min 5 characters</span>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Age:</label>
+            <div class="col-8">
+                <input class="form-control" type="number" placeholder="enter age" formControlName="age" [class.is-invalid]="ageInvalid">
+                <span class="text-danger" *ngIf="ageInvalid">Required field</span>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Username:</label>
+            <div class="col-8">
+                <input class="form-control" type="text" placeholder="enter username" formControlName="username" [class.is-invalid]="usernameInvalid">
+                <span class="text-danger" *ngIf="usernameInvalid">Min 6 characters</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-success mx-1"><i class="fa fa-user-plus"></i> Add</button>
+        <button (click)="updateUser()" type="button" class="btn btn-primary mx-1"><i class="fa fa-user-edit"></i> Update</button>
+        <button (click)="deleteUser()" type="button" class="btn btn-danger mx-1"><i class="fa fa-user-times"></i> Delete</button>
+    </div>
+
+
+</form>
+<br>
+<hr>
+<br>
+
+<app-table [userInput]="users" (selectRecord)="selectOutput($event)"></app-table>

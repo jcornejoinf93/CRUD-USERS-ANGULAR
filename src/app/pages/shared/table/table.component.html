@@ -1,0 +1,16 @@
+<table class="table table-primary table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="mousePointer" *ngFor="let user of userInput" (click)="selectItem(user)">
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.username }}</td>
+        </tr>
+    </tbody>
+</table>
